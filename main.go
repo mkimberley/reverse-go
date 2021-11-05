@@ -21,11 +21,12 @@ func Reverse(s string) string {
 	return string(runes)
 }
 func main() {
-	filename := os.Args[1]
-	if filename == "" {
-		log.Fatal()
+	arguments := os.Args
+	if len(arguments) == 1 {
+		log.Fatal("Filename not specified")
 		os.Exit(1)
 	}
+	filename := arguments[1]
 	ReversedText, _ := ReverseFile(filename)
 	fmt.Printf("Text reversed: %s\n", ReversedText)
 
